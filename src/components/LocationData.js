@@ -3,8 +3,8 @@ import React from 'react'
 const LocationData = (props) => {
     return (
         <div>
-            <p> Location: {props.location.name}, {props.location.region} </p>
-            <p> Local Time: {props.location.localtime}</p>
+            <p> Location: {props.locationData.name}, {props.locationData.region} </p>
+            <p> Local Time: {props.locationData.localtime}</p>
         </div>
     )
 }

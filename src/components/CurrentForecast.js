@@ -4,21 +4,24 @@ import LocationData from './LocationData'
 import CurrentConditions from './CurrentConditions'
 
 const REACT_APP_WEATHER_KEY= process.env.REACT_APP_WEATHER_KEY
-const URL = `https://api.weatherapi.com/v1/current.json?key=${REACT_APP_WEATHER_KEY}&q=Portland`
 
 const CurrentForecast = () => {
-  let [location, setLocation] = useState({})
+  let [city, setCity] = useState('')
+  let [locationData, setLocationData] = useState({})
   let [conditions, setConditions] = useState({})
 
-  const getForecast = () => {
-    axios.get(URL) 
+  const getWeather = e => {
+    e.preventDefault();
+
+    axios.get(`https://api.weatherapi.com/v1/current.json?key=${REACT_APP_WEATHER_KEY}&q=${city}`)
+
       .then(function (response) {
         let locationResponse = response.data.location
         let conditionsResponse = response.data.current
 
-        setLocation(locationResponse)
+        setLocationData(locationResponse)
         setConditions(conditionsResponse)
-       console.log(conditionsResponse.condition.text)
+
       })
       .catch(function (error) {
         console.log(error)
@@ -29,8 +32,19 @@ const CurrentForecast = () => {
   return (
     <>
       <div> Current Forecast </div>
-      <button onClick={getForecast}>Get Forecast</button>
-      <LocationData location={location}/>
+
+      <form onSubmit={getWeather}>
+        <input
+          type="text"
+          placeholder="Search"
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+        />
+      </form>
+
+      <button type="submit">Get Forecast</button>
+      
+      <LocationData locationData={locationData}/>
       <CurrentConditions conditions={conditions}/>
     </>
   )
