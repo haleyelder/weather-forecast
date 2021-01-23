@@ -9,25 +9,34 @@ const CurrentForecast = () => {
   let [city, setCity] = useState('')
   let [locationData, setLocationData] = useState({})
   let [conditions, setConditions] = useState({})
+  let [forecast, setForecast] = useState({})
+
+  //  let currentUrl = (`https://api.weatherapi.com/v1/current.json?key=${REACT_APP_WEATHER_KEY}&q=${city}`)
+  //  let forecastUrl = (`https://api.weatherapi.com/v1/forecast.json?key=${REACT_APP_WEATHER_KEY}&q=Portland&days=2`)
+
 
   const getWeather = e => {
     e.preventDefault();
+      axios.get(`https://api.weatherapi.com/v1/current.json?key=${REACT_APP_WEATHER_KEY}&q=Portland}`)
+      .then(function (response) {     
+        console.log(response)
 
-    axios.get(`https://api.weatherapi.com/v1/current.json?key=${REACT_APP_WEATHER_KEY}&q=${city}`)
-
-      .then(function (response) {
+        // let forecastResponse = response.data.forecast.forecastday[0]
+        // console.log(forecastResponse)
+    
         let locationResponse = response.data.location
         let conditionsResponse = response.data.current
-
+    
         setLocationData(locationResponse)
         setConditions(conditionsResponse)
-
+    
       })
       .catch(function (error) {
         console.log(error)
       })
+      
+ 
   }
-
 
   return (
     <>
