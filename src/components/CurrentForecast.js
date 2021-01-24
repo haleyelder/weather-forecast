@@ -2,40 +2,45 @@ import React, {useState, } from 'react'
 import axios from 'axios'
 import LocationData from './LocationData'
 import CurrentConditions from './CurrentConditions'
+import ThreeDayForecast from './ThreeDayForecast'
 
 const REACT_APP_WEATHER_KEY= process.env.REACT_APP_WEATHER_KEY
 
 const CurrentForecast = () => {
-  let [city, setCity] = useState('')
   let [locationData, setLocationData] = useState({})
   let [conditions, setConditions] = useState({})
-  let [forecast, setForecast] = useState({})
-
-  //  let currentUrl = (`https://api.weatherapi.com/v1/current.json?key=${REACT_APP_WEATHER_KEY}&q=${city}`)
-  //  let forecastUrl = (`https://api.weatherapi.com/v1/forecast.json?key=${REACT_APP_WEATHER_KEY}&q=Portland&days=2`)
-
+  let [city, setCity] = useState('')
+  let [forecast, setForecast] = useState([])
 
   const getWeather = e => {
     e.preventDefault();
-      axios.get(`https://api.weatherapi.com/v1/current.json?key=${REACT_APP_WEATHER_KEY}&q=Portland}`)
-      .then(function (response) {     
-        console.log(response)
+      
+    const getCurrentConditions = () => {
+        return axios.get(` https://api.weatherapi.com/v1/current.json?key=${REACT_APP_WEATHER_KEY}&q=${city}`)
+      }
 
-        // let forecastResponse = response.data.forecast.forecastday[0]
-        // console.log(forecastResponse)
-    
-        let locationResponse = response.data.location
-        let conditionsResponse = response.data.current
-    
+      const getForecastConditions = () => {
+        return axios.get(`https://api.weatherapi.com/v1/forecast.json?key=${REACT_APP_WEATHER_KEY}&q=${city}&days=3`)
+      }
+
+      Promise.all([getCurrentConditions(), getForecastConditions()])
+      .then(function (response) {  
+      
+        let locationResponse = response[0].data.location
+        let conditionsResponse = response[0].data.current
+
+        // first day of three; needs arr loop
+        let forecastResponse = response[1].data.forecast.forecastday[0]
+        
+        console.log(forecastResponse.day.mintemp_f)
+
         setLocationData(locationResponse)
         setConditions(conditionsResponse)
-    
+        setForecast(forecastResponse)
       })
       .catch(function (error) {
         console.log(error)
-      })
-      
- 
+      })     
   }
 
   return (
@@ -55,6 +60,7 @@ const CurrentForecast = () => {
       
       <LocationData locationData={locationData}/>
       <CurrentConditions conditions={conditions}/>
+      <ThreeDayForecast forecast={forecast}/>
     </>
   )
 }

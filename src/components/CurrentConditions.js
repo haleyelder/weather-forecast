@@ -5,7 +5,8 @@ const CurrentConditions = (props) => {
         <>  
            <p>Temp: {props.conditions.temp_f}&deg; F</p>
            <p>Feels Like: {props.conditions.feelslike_f}&deg; F</p>
-           {/* <p>Descript: {props.conditions.condition.text}</p> */}
+           <p>Descript: {props.conditions.condition.text}</p>
+
            <p>Windspeed: {props.conditions.wind_mph}</p>
            <p>Wind Direction: {props.conditions.wind_dir}</p>
            <p>Precipitation: {props.conditions.precip_in}"</p>
