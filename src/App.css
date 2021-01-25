@@ -1,4 +1,6 @@
-.current-conditions {
+.current-conditions, 
+header,
+footer {
   text-align: center;
 }
 
@@ -13,6 +15,3 @@
   display:inline-block;
 }
 
-footer {
-  text-align: center;
-}

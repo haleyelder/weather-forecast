@@ -3,7 +3,8 @@ import React from 'react'
 function Header() {
   return (
     <header>
-        <h1>WEATHER FORECAST</h1>
+        <h1>Weather Forecast</h1>
+        <p>search by city or zip code</p>
     </header>
   );
 }
