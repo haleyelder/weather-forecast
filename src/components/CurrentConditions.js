@@ -1,11 +1,11 @@
 import React from 'react'
 
 const CurrentConditions = (props) => {
-    let localTimeData = props.conditions.last_updated   
-    let newStr = localTimeData.split(" ")
-    let formatDate = newStr[0].split('-')
-    let localTimeFormatted =  newStr[1]
-    let localDateFormatted = `${formatDate[1]}/${formatDate[2]}/${formatDate[0]}`
+    // let localTimeData = props.conditions.last_updated   
+    // let newStr = localTimeData.split(" ")
+    // let formatDate = newStr[0].split('-')
+    // let localTimeFormatted =  newStr[1]
+    // let localDateFormatted = `${formatDate[1]}/${formatDate[2]}/${formatDate[0]}`
      return (
         <>  
            <div className="current-conditions">
@@ -16,7 +16,7 @@ const CurrentConditions = (props) => {
               <p>Wind Direction: {props.conditions.wind_dir}</p>
               <p>Precipitation: {props.conditions.precip_in}"</p>
               <p>Cloud Cover: {props.conditions.cloud}%</p>
-              <p>Last Updated Time: {localDateFormatted}  {localTimeFormatted}</p>
+              <p>Last Updated Time: {props.conditions.last_updated}</p>
           </div> 
         </>
     )
