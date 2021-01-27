@@ -1,11 +1,7 @@
 import React from "react";
 
 const ThreeDayForecast = (props) => {
-  // let currentDate = props.forecast.date
-  // let localDateFormatted = `${formatDate[1]}/${formatDate[2]}/${formatDate[0]}`
-
   const forecastList = props.forecast.map((item) => {
-
     return (
       <div key={item}>
         <p> Date: {item.date}</p>
