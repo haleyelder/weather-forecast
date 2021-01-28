@@ -1,32 +1,45 @@
-@import-normalize;
-
 /* GRAY -- #323232
 FUSCHIA -- #A10D65
 PINK -- #BE3F83
 LT. BLUE -- #AAE1F7 */
+
+.container {
+  max-width: 100%;
+}
 
 body {
   background-color: #AAE1F7
 }
 
 header {
-  border-bottom: 5px solid #323232;
+  background-color: #323232;
+  color: white;
   text-align: center;
+  padding: 15px;
+}
+
+header > section > div .title {
+  padding: 20px;
+}
+
+h3 {
+  text-align: center;
+}
+
+button {
+  background-color: #323232;
 }
 
 .location-data {
   background-color: #A10D65;
   color: white;
   padding: 10px;
+  text-align: center;
 }
 
-.searchbar {
-  text-align: center;
-  margin: 0 auto;
-  /* border: 1px solid red; */
-}
-input {
+div.row > div > form > input{
   width: 100%;
+  background-color: lightcyan;
 }
  
 .submit-button {
@@ -34,9 +47,7 @@ input {
   border: 2px solid lightgray;
 } 
 
-.current-conditions, 
-header,
-footer {
+.current-conditions  {
   text-align: center;
 }
 
@@ -50,5 +61,9 @@ footer {
   background-color: #631717;
   border: 2px solid white;
   display:inline-block;
+}
+
+footer {
+  text-align: center;
 }
 

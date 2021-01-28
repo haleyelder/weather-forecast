@@ -35,23 +35,27 @@ const CurrentForecast = () => {
 
   return (
     <>
-      <div className="current-conditions container-fluid">
+      <div className="container">
         <h3>Current Forecast</h3>
-        <div className="row searchbar">
-          <form onSubmit={getWeather} className="col-md-4 ">
-            <input
-              type="text"
-              placeholder="Search"
-              value={city}
-              onChange={(e) => setCity(e.target.value)}
-            />
-          </form>
-          <button type="submit" className="submit-button col-md-2">
-            Get Forecast
-          </button>
+        <div className="row">
+          <div className="column column-50 column-offset-10">
+            <form onSubmit={getWeather}>
+              <input
+                type="text"
+                placeholder="Search"
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+              />
+            </form>
+          </div>
+            <button type="submit" className="submit-button column column-20">
+              Get Forecast
+            </button>
+       
         </div>
         <Location locationData={locationData} />
       </div>
+
       <CurrentConditions conditions={conditions} />
       <ThreeDayForecast forecast={forecast} />
     </>

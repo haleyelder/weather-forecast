@@ -2,9 +2,9 @@ import React from "react";
 
 function Header() {
   return (
-    <header className="container-fluid">
+    <header className="container">
       <section className="row">
-        <div className="col-md">
+        <div className="column title">
         <h1>Weather Forecast</h1>
         <p>Search below by city name or zip code</p>
       </div>
