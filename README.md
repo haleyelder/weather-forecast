@@ -1,7 +1,7 @@
 # Weather Forecast 
 
 ## Current v3 version - React
-- [live site](https://haleyelder.github.io/weather-forecast/) -- !ongoing working example in progress! 
+- [live site](https://haleyelder.github.io/weather-forecast/) -- !!ongoing working example in progress!! 
 - using [Weather API](https://www.weatherapi.com) 
 - [icons for forecast](https://ionicons.com/) 
 

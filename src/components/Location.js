@@ -1,17 +1,19 @@
 import React from "react";
 
 const Location = (props) => {
+//   let str = (props.locationData.localtime)
+//   let newStr = str.split(" ")
+//   let formatDate = newStr[0].split('-')
+
+
   return (
-    <div className="container">
-      <div className="location-data  row">
-        <div className="column">
+      <div className="location-data">
           <p>
             Location: {props.locationData.name}, {props.locationData.region}
           </p>
-          <p>Local Time: {props.locationData.localtime}</p>
+          <p>Local time: {props.locationData.localtime}</p>
+          
         </div>
-      </div>
-    </div>
   );
 };
 

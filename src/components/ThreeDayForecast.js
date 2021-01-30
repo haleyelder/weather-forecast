@@ -9,6 +9,7 @@ const ThreeDayForecast = (props) => {
         <p>Max Temp: {item.day.maxtemp_f}&deg; F</p>
         <p>Chance of Rain: {item.day.daily_chance_of_rain}%</p>
         <p>Descript: {item.day.condition.text}</p>
+        <p><img src={item.day.condition.icon} alt="weather status icon"/></p>
         <p>Moon Phase: {item.astro.moon_phase}</p>
         <p>Sunrise: {item.astro.sunrise}</p>
         <p>Sunset: {item.astro.sunset}</p>

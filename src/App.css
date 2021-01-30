@@ -3,51 +3,58 @@ FUSCHIA -- #A10D65
 PINK -- #BE3F83
 LT. BLUE -- #AAE1F7 */
 
-.container {
-  max-width: 100%;
+* {
+  padding: 0;
+  margin: 0;
 }
 
 body {
-  background-color: #AAE1F7
+  background-color: #aae1f7;
 }
 
 header {
   background-color: #323232;
   color: white;
   text-align: center;
-  padding: 15px;
+  padding: 10px 0;
 }
 
-header > section > div .title {
-  padding: 20px;
+.current-search {
+  margin: 20px auto;
+  text-align: center;;
 }
 
-h3 {
+form {
   text-align: center;
+  width: 50%;
+  display: inline-block;
+  float: left;
 }
 
-button {
-  background-color: #323232;
+.current-search button {
+  width: 15%;
+  float: left;
+  color: white;
+  background-color: #013220;
+  border: none;
+ display: inline-block;
+  padding: 12px;
+  float: left;
+}
+input {
+  width: 100%;
+  padding: 10px 0;
+  border: 1px solid lightgray;
 }
 
 .location-data {
-  background-color: #A10D65;
+  background-color: #a10d65;
   color: white;
-  padding: 10px;
   text-align: center;
+  clear: both;
 }
 
-div.row > div > form > input{
-  width: 100%;
-  background-color: lightcyan;
-}
- 
-.submit-button {
-  padding: 0 10px;
-  border: 2px solid lightgray;
-} 
-
-.current-conditions  {
+.current-conditions {
   text-align: center;
 }
 
@@ -55,15 +62,78 @@ div.row > div > form > input{
   text-align: center;
 }
 
+.extended-forecast-block h3 {
+  text-align: center;
+  background-color: #a10d65;
+  padding: 10px;
+  color: white;
+}
+
 .extended-forecast-block div {
-  width:30%;
-  color: white;    
-  background-color: #631717;
-  border: 2px solid white;
-  display:inline-block;
+  text-align: center;
+  width: 30%;
+  color: white;
+  display: inline-block;
+  margin: 0 10px 20px 0;
+  padding: 10px;
+  background-color: #00022e;
+}
+
+@media screen and (max-width: 800px) {
+
+  header span {
+    font-size: 12px;
+  }
+
+  .current-search {
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .current-search button {
+    width: 100%;
+    color: white;
+    background-color: #013220;
+    border: none;
+    padding: 10px;
+  }
+  .current-search input {
+    padding: 10px;
+    border: 1px solid lightgray;
+    width: 100%;
+  }
+  .location-data {
+    padding: 12px;
+  }
+  .location-data p {
+    margin: 5px;
+  }
+  .extended-forecast-block div {
+    width: 100%;
+    margin: 10px 0;
+    padding: 4px 0;
+  }
+
+  .extended-forecast-block p {
+    margin: 8px 0;
+  }
+
+  img {
+    width:10%;
+  }
+
+  .current-conditions {
+    margin: 20px;
+  }
+
+  .current-conditions p {
+    margin: 5px 0;
+  }
 }
 
 footer {
+  font-size: 14px;
   text-align: center;
+  bottom: 0;
+  clear: both;
 }
-

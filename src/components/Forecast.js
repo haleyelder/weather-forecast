@@ -7,12 +7,14 @@ import ThreeDayForecast from "./ThreeDayForecast";
 const REACT_APP_WEATHER_KEY = process.env.REACT_APP_WEATHER_KEY;
 
 const CurrentForecast = () => {
+  let [visible, setVisible] = useState(false);
   let [locationData, setLocationData] = useState({});
   let [conditions, setConditions] = useState({});
   let [city, setCity] = useState("");
   let [forecast, setForecast] = useState([]);
 
   const getWeather = (e) => {
+    setVisible(true);
     e.preventDefault();
 
     axios
@@ -35,29 +37,25 @@ const CurrentForecast = () => {
 
   return (
     <>
-      <div className="container">
-        <h3>Current Forecast</h3>
-        <div className="row">
-          <div className="column column-50 column-offset-10">
-            <form onSubmit={getWeather}>
-              <input
-                type="text"
-                placeholder="Search"
-                value={city}
-                onChange={(e) => setCity(e.target.value)}
-              />
-            </form>
-          </div>
-            <button type="submit" className="submit-button column column-20">
-              Get Forecast
-            </button>
-       
-        </div>
-        <Location locationData={locationData} />
+      <div className="current-search">
+          <form onSubmit={getWeather}>
+            <input
+              type="text"
+              placeholder="Search"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+            />
+          </form>
+        <button type="submit">Check Forecast</button>
       </div>
+      {visible && (
+        <>
+          <Location locationData={locationData} />
 
-      <CurrentConditions conditions={conditions} />
-      <ThreeDayForecast forecast={forecast} />
+          <CurrentConditions conditions={conditions} />
+          <ThreeDayForecast forecast={forecast} />
+        </>
+      )}
     </>
   );
 };

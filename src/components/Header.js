@@ -2,13 +2,11 @@ import React from "react";
 
 function Header() {
   return (
-    <header className="container">
-      <section className="row">
-        <div className="column title">
-        <h1>Weather Forecast</h1>
-        <p>Search below by city name or zip code</p>
+    <header>
+        <div>
+        <h2>Weather Forecast</h2>
+        <span><em>Check your current weather forecast <br></br>by searching below by city name or zip code</em></span>
       </div>
-      </section>
     </header>
   );
 }
