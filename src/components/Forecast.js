@@ -38,15 +38,15 @@ const CurrentForecast = () => {
   return (
     <>
       <div className="current-search">
-          <form onSubmit={getWeather}>
-            <input
-              type="text"
-              placeholder="Search"
-              value={city}
-              onChange={(e) => setCity(e.target.value)}
-            />
-          </form>
-        <button type="submit">Check Forecast</button>
+        <form onSubmit={getWeather}>
+          <input
+            type="text"
+            placeholder="Search"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+          />
+          <button type="submit">Check Forecast</button>
+        </form>
       </div>
       {visible && (
         <>
