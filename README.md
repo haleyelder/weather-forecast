@@ -1,6 +1,5 @@
 # Weather Forecast 
-v3 -- [live site](https://haleyelder.github.io/weather-forecast/) - deployed with [Github pages](
-(https://create-react-app.dev/docs/deployment#github-pages)
+v3 -- [live site](https://haleyelder.github.io/weather-forecast/) - deployed with [Github pages](https://create-react-app.dev/docs/deployment#github-pages)
 
 The current rendition of this weather forecast dashboard is to show the current conditions and a couple days forecast in the future. Only a few days could be shown for the future forecast due to the free usage tier switching from using the freeCodeCamp recommended [OpenWeather API](https://openweathermap.org/) to using [Weather API](https://www.weatherapi.com) to try out something different. 
 
